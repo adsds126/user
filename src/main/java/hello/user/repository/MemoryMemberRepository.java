@@ -1,10 +1,12 @@
 package hello.user.repository;
 
 import hello.user.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-public class MemoryMemberRepository implements MemberRepository{
+@Repository
+public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
@@ -31,5 +33,8 @@ public class MemoryMemberRepository implements MemberRepository{
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
+    }
+    public void clearStore(){
+        store.clear();
     }
 }
