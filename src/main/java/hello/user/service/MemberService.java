@@ -5,12 +5,13 @@ import hello.user.repository.MemberRepository;
 import hello.user.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 //테스트 케이스 작성시 cmd + shf + t / JUnit5
-@Service
+@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
